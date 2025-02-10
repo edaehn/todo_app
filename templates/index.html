@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO App</title>
+    <style>
+        .high { color: red; }
+        .medium { color: orange; }
+        .low { color: green; }
+    </style>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li class="{{ 'high' if task.priority == 2 else 'medium' if 
+task.priority == 1 else 'low' }}">
+                {% if task.complete %}
+                    <strike>{{ task.task }}</strike>
+                {% else %}
+                    {{ task.task }}
+                {% endif %}
+                <a href="/complete/{{ task.id }}">Complete</a>
+                <a href="/delete/{{ task.id }}">Delete</a>
+                <a href="/edit/{{ task.id }}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="/add">
+        <input type="text" name="task" placeholder="Add task">
+        <select name="priority">
+            <option value="2">High</option>
+            <option value="1">Medium</option>
+            <option value="0">Low</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
+

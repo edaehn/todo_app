@@ -1,0 +1,107 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.high {
+    border-left: 5px solid #f05454;
+    background-color: rgba(240, 84, 84, 0.13);
+}
+
+li.medium {
+    border-left: 5px solid #ffd700;
+    background-color: rgba(255, 215, 0, 0.38);
+}
+
+li.low {
+    border-left: 5px solid #00b050;
+    background-color: rgba(0, 176, 80, 0.31);
+}
+
+li.complete {
+    opacity: 0.8; /* Adjust opacity as needed */
+    color: #999; /* Set text color to light gray */
+    background-color: #f9f9f9; /* Set background to a lighter gray */
+}
+
+li.complete .btn {
+    opacity: 0.8; /* Also gray out the buttons for completed tasks */
+    cursor: default; /* Change cursor to indicate the buttons are disabled */
+    pointer-events: none; /* Disable button clicks for completed tasks */
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px; /* Adjust spacing between buttons */
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #eee;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a smooth hover
+effect */
+}
+
+.btn:hover {
+    background-color: #ddd;
+}

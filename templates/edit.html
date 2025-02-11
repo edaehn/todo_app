@@ -2,20 +2,20 @@
 <html>
 <head>
     <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Edit Task</h1>
     <form method="POST" action="/edit/{{ task_id }}">
-        <input type="text" name="task" value="{{ task }}">
-        <select name="priority">
-            <option value="2" {% if priority == 2 %}selected{% endif 
-%}>High</option>
-            <option value="1" {% if priority == 1 %}selected{% endif 
-%}>Medium</option>
-            <option value="0" {% if priority == 0 %}selected{% endif 
-%}>Low</option>
-        </select>
-        <button type="submit">Save</button>
+        <div class="actions">
+            <input type="text" name="task" value="{{ task }}">
+            <select name="priority">
+                <option value="2" {% if priority == 2 %}selected{% endif %}>High</option>
+                <option value="1" {% if priority == 1 %}selected{% endif %}>Medium</option>
+                <option value="0" {% if priority == 0 %}selected{% endif %}>Low</option>
+            </select>
+            <button type="submit">Save</button>
+        </div>
     </form>
 </body>
 </html>

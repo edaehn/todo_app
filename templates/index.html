@@ -2,38 +2,37 @@
 <html>
 <head>
     <title>TODO App</title>
-    <style>
-        .high { color: red; }
-        .medium { color: orange; }
-        .low { color: green; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>TODO List</h1>
+    <form method="POST" action="/add">
+        <div class="actions">
+            <input type="text" name="task" placeholder="Add task">
+            <select name="priority">
+                <option value="2">High</option>
+                <option value="1">Medium</option>
+                <option value="0">Low</option>
+            </select>
+        <button type="submit">Add</button>
+        </div>
+    </form>
     <ul>
-        {% for task in tasks %}
-            <li class="{{ 'high' if task.priority == 2 else 'medium' if 
-task.priority == 1 else 'low' }}">
+        {% for task in tasks | sort(attribute='priority', reverse=True) | sort(attribute='complete')  %}
+            <li class="{{ 'high' if task.priority == 2 else 'medium' if task.priority == 1 else 'low' }} {{ 'complete' if task.complete == 1 }}">
                 {% if task.complete %}
                     <strike>{{ task.task }}</strike>
                 {% else %}
                     {{ task.task }}
                 {% endif %}
-                <a href="/complete/{{ task.id }}">Complete</a>
-                <a href="/delete/{{ task.id }}">Delete</a>
-                <a href="/edit/{{ task.id }}">Edit</a>
+                <div class="actions">
+                    <a href="/complete/{{ task.id }}" class="btn">Complete</a>
+                    <a href="/delete/{{ task.id }}" class="btn">Delete</a>
+                    <a href="/edit/{{ task.id }}" class="btn">Edit</a>
+                </div>
             </li>
         {% endfor %}
     </ul>
-    <form method="POST" action="/add">
-        <input type="text" name="task" placeholder="Add task">
-        <select name="priority">
-            <option value="2">High</option>
-            <option value="1">Medium</option>
-            <option value="0">Low</option>
-        </select>
-        <button type="submit">Add</button>
-    </form>
 </body>
 </html>
 

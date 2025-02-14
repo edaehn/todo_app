@@ -34,7 +34,7 @@
 5. **Open your browser** at [http://127.0.0.1:5000](http://127.0.0.1:5000) to view your TODO list.
 
 ## Contributing
-Feel free to fork this project and make pull requests with new features, fixes, or styling improvements. Check the [tutorial post](https://daehnhardt.com/blog/2025/02/11/python-flask-todo-app) for extended explanations and references.
+Feel free to fork this project and make pull requests with new features, fixes, or styling improvements. Check the [tutorial post](https://daehnhardt.com/blog/2025/02/11/todo-flask-app/) for extended explanations and references.
 
 **If you find this project helpful, please give it a star—it means a lot!**  
 
